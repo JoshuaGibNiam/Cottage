@@ -1,5 +1,5 @@
 from paper import Paper
-
+from sig_function import intinput
 class Tree:
     """tree handles the back-end of this program."""
     algebra_subsets = {
@@ -100,4 +100,22 @@ class Tree:
 
     def add(self):
         '''Creates a paper'''
-        pass
+        print(key for key in Tree.branches.keys())
+        c1 = intinput("What type of paper are you publishing/adding (1: math, 2: science)?"
+                      ":", 2)
+        if c1 == 1:
+            print("\n")
+            for index, key in enumerate(Tree.math_twigs.keys()):
+                print(f"{index}. {key}")
+            c2 = intinput("What type of paper are you publishing (enter index)?",
+                          len(Tree.math_twigs.keys()))
+
+
+        elif c1 == 2:
+            print("\n")
+            for index, key in enumerate(Tree.science_twigs.keys()):
+                print(f"{index}. {key}")
+            c2 = intinput("What type of paper are you publishing (enter index)",
+                          len(Tree.science_twigs.keys()))
+
+
