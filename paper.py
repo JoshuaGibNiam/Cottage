@@ -53,6 +53,7 @@ class Paper():
             print("File does not exist!")
             return False
 
+
 if __name__ == "__main__":
     relativity = Paper(author="Albert Einstein", title="theory of Relativity", date="02/03/2025")
     relativity.extract("Papers/relativity.txt")
