@@ -1,88 +1,86 @@
 from paper import Paper
 
-class Interface:
+class Tree:
+    """tree handles the back-end of this program."""
+    algebra_subsets = {
+        "Elementary Algebra": [],
+        "Linear Algebra": [],
+        "Abstract Algebra": [],
+        "Boolean Algebra": [],
+        "Group Theory": [],
+        "Ring Theory": [],
+        "Field Theory": []
+    }
 
-        # Mathematics subsets
-    algebra_subsets = [
-            "Elementary Algebra",
-            "Linear Algebra",
-            "Abstract Algebra",
-            "Boolean Algebra",
-            "Group Theory",
-            "Ring Theory",
-            "Field Theory"
-        ]
+    geometry_subsets = {
+        "Euclidean Geometry": [],
+        "Non-Euclidean Geometry": [],
+        "Analytic Geometry": [],
+        "Differential Geometry": [],
+        "Topology": [],
+        "Projective Geometry": [],
+        "Computational Geometry": []
+    }
 
-    geometry_subsets = [
-            "Euclidean Geometry",
-            "Non-Euclidean Geometry",
-            "Analytic Geometry",
-            "Differential Geometry",
-            "Topology",
-            "Projective Geometry",
-            "Computational Geometry"
-        ]
+    calculus_subsets = {
+        "Differential Calculus": [],
+        "Integral Calculus": [],
+        "Multivariable Calculus": [],
+        "Vector Calculus": [],
+        "Real Analysis": [],
+        "Complex Analysis": [],
+        "Functional Analysis": []
+    }
 
-    calculus_subsets = [
-            "Differential Calculus",
-            "Integral Calculus",
-            "Multivariable Calculus",
-            "Vector Calculus",
-            "Real Analysis",
-            "Complex Analysis",
-            "Functional Analysis"
-        ]
+    statistics_subsets = {
+        "Descriptive Statistics": [],
+        "Inferential Statistics": [],
+        "Bayesian Statistics": [],
+        "Probability Theory": [],
+        "Regression Analysis": [],
+        "Multivariate Statistics": []
+    }
 
-    statistics_subsets = [
-            "Descriptive Statistics",
-            "Inferential Statistics",
-            "Bayesian Statistics",
-            "Probability Theory",
-            "Regression Analysis",
-            "Multivariate Statistics"
-        ]
+    number_theory_subsets = {
+        "Elementary Number Theory": [],
+        "Analytic Number Theory": [],
+        "Algebraic Number Theory": [],
+        "Computational Number Theory": [],
+        "Diophantine Equations": [],
+        "Cryptographic Number Theory": []
+    }
 
-    number_theory_subsets = [
-            "Elementary Number Theory",
-            "Analytic Number Theory",
-            "Algebraic Number Theory",
-            "Computational Number Theory",
-            "Diophantine Equations",
-            "Cryptographic Number Theory"
-        ]
+    # Science subsets as dictionaries with empty lists
+    physics_subsets = {
+        "Classical Mechanics": [],
+        "Quantum Mechanics": [],
+        "Thermodynamics": [],
+        "Electromagnetism": [],
+        "Relativity": [],
+        "Optics": [],
+        "Nuclear Physics": [],
+        "Astrophysics": []
+    }
 
-        # Science subsets
-    physics_subsets = [
-            "Classical Mechanics",
-            "Quantum Mechanics",
-            "Thermodynamics",
-            "Electromagnetism",
-            "Relativity",
-            "Optics",
-            "Nuclear Physics",
-            "Astrophysics"
-        ]
+    chemistry_subsets = {
+        "Organic Chemistry": [],
+        "Inorganic Chemistry": [],
+        "Physical Chemistry": [],
+        "Analytical Chemistry": [],
+        "Biochemistry": [],
+        "Theoretical Chemistry": []
+    }
 
-    chemistry_subsets = [
-            "Organic Chemistry",
-            "Inorganic Chemistry",
-            "Physical Chemistry",
-            "Analytical Chemistry",
-            "Biochemistry",
-            "Theoretical Chemistry"
-        ]
-
-    biology_subsets = [
-            "Botany",
-            "Zoology",
-            "Genetics",
-            "Microbiology",
-            "Ecology",
-            "Evolutionary Biology",
-            "Molecular Biology",
-            "Neuroscience"
-        ]
-
+    biology_subsets = {
+        "Botany": [],
+        "Zoology": [],
+        "Genetics": [],
+        "Microbiology": [],
+        "Ecology": [],
+        "Evolutionary Biology": [],
+        "Molecular Biology": [],
+        "Neuroscience": []
+    }
         # Dictionary referencing the lists
     math_twigs = {
             "Algebra": algebra_subsets,
@@ -100,5 +98,6 @@ class Interface:
 
     branches = {"math": math_twigs, "science": science_twigs}
 
-
-
+    def add(self):
+        '''Creates a paper'''
+        pass

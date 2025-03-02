@@ -1,10 +1,14 @@
 import os
 class Paper():
-    def __init__(self, author: str, title: str, date: str):
+    def __init__(self, author: str, title: str, date: str, branch: str, twig: str,
+                 subset: str) -> None:
         self._author = author
         self._title = title
         self._date = date   #Date must be in DD/MM/YYYY format example 03/02/2025
         self._content = " "
+        self.branch = branch
+        self.twig = twig
+        self.subset = subset
 
     @property
     def content(self):
