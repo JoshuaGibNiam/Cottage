@@ -24,6 +24,7 @@ every year, at different places, making it difficult to keep up with the technol
    3. ... (not yet written)
 ```
 After getting to a branch, the user can access a paper directly.
+
 3. **Credits**: Each paper will have credits to the contributors, and the publishing date.
 
 ### Future Features
