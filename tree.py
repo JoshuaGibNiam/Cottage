@@ -104,18 +104,54 @@ class Tree:
         c1 = intinput("What type of paper are you publishing/adding (1: math, 2: science)?"
                       ":", 2)
         if c1 == 1:
+            c1 = "math"
             print("\n")
             for index, key in enumerate(Tree.math_twigs.keys()):
                 print(f"{index}. {key}")
             c2 = intinput("What type of paper are you publishing (enter index)?",
                           len(Tree.math_twigs.keys()))
+            c2 = Tree.math_twigs[c2]
+            for index, key in enumerate(c2):
+                print(f"{index}. {key}")
+            c3 = intinput("What type of paper are you publishing (enter index)?",
+                          len(c2.keys()))
+            for x, y in enumerate(c2.keys()):
+                if x == c3:
+                    c3name = y
+
+            for k, x in Tree.math_twigs.items():
+                if x == c2:
+                    c2name = k
+
+            title = input("What is the title of the paper you are publishing/adding?: ")
+            author = input("What is the author of the paper you are publishing/adding?: ")
+            date = input("When was the paper completed? (DD/MM/YYYY): ")
+            c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
 
 
         elif c1 == 2:
+            c1 = "science"
             print("\n")
             for index, key in enumerate(Tree.science_twigs.keys()):
                 print(f"{index}. {key}")
-            c2 = intinput("What type of paper are you publishing (enter index)",
+            c2 = intinput("What type of paper are you publishing (enter index)?",
                           len(Tree.science_twigs.keys()))
+            c2 = Tree.science_twigs[c2]
+            for index, key in enumerate(c2):
+                print(f"{index}. {key}")
+            c3 = intinput("What type of paper are you publishing (enter index)?",
+                          len(c2.keys()))
+            for x, y in enumerate(c2.keys()):
+                if x == c3:
+                    c3name = y
+
+            for k, x in Tree.science_twigs.items():
+                if x == c2:
+                    c2name = k
+
+            title = input("What is the title of the paper you are publishing/adding?: ")
+            author = input("What is the author of the paper you are publishing/adding?: ")
+            date = input("When was the paper completed? (DD/MM/YYYY): ")
+            c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
 
 
