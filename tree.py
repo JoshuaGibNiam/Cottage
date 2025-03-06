@@ -98,7 +98,7 @@ class Tree:
 
     branches = {"math": math_twigs, "science": science_twigs}
 
-    def intiialize(self):
+    def initialize(self):
         '''Creates a paper'''
         print(list(Tree.branches.keys()))
         c1 = intinput("What type of paper are you publishing/adding (1: math, 2: science)?"
@@ -181,10 +181,71 @@ class Tree:
             return False
         else:
             return True
+    def search_by_structure(self):
+        for index, key in enumerate(Tree.branches, start=1):
+            print(f"{index}. {key}")
+        c1 = intinput("What type of paper are you searching for (enter index)?",
+                      2)
+        if c1 == "1":
+            c1 = "math"
+            print("\n")
+            for index, key in enumerate(Tree.math_twigs.keys(), start=1):
+                print(f"{index}. {key}")
+            c2 = intinput("What type of paper are you searching for (enter index)?",
+                          len(Tree.math_twigs.keys()))
+            for k, x in enumerate(Tree.math_twigs.keys(), start=1):
+                if k == int(c2):
+                    c2 = Tree.math_twigs[x]
+                    break
+
+            for index, key in enumerate(c2, start=1):
+                print(f"{index}. {key}")
+            c3 = int(intinput("What type of paper are you searching for (enter index)?",
+                          len(c2.keys())))
+            for index, key in enumerate(c2.keys(), start=1):
+                if index == c3:
+                    c3 = key
+
+            if len(c2[c3]) == 0:
+                print(f"There are no papers in {c3}!")
+
+        if c1 == "2":
+            c2 = "math"
+            print("\n")
+            for index, key in enumerate(Tree.science_twigs.keys(), start=1):
+                print(f"{index}. {key}")
+            c2 = intinput("What type of paper are you searching for (enter index)?",
+                          len(Tree.science_twigs.keys()))
+            for k, x in enumerate(Tree.science_twigs.keys(), start=1):
+                if k == int(c2):
+                    c2 = Tree.science_twigs[x]
+                    break
+
+            for index, key in enumerate(c2, start=1):
+                print(f"{index}. {key}")
+            c3 = int(intinput("What type of paper are you searching for (enter index)?",
+                              len(c2.keys())))
+            for index, key in enumerate(c2.keys(), start=1):
+                if index == c3:
+                    c3 = key
+
+            if len(c2[c3]) == 0:
+                print(f"There are no papers in {c3}!")
+            else:
+                for x, y in enumerate(c2[c3], start=1):
+                    print(f"{x}. {y}")
+                c4 = int(intinput("What type of paper are you searching for (enter index)?",
+                        len(c2[c3])))
+                print(c2[c3][c4-1])
+                return c2[c3][c4-1]
+
+
+
+
 
 if __name__ == "__main__":
     paper1 = Paper("Joshua", "JoshuaNIam", "11/2/2025", "math", "Algebra"
                    , "Elementary algebra")
     t = Tree()
-    t.write(paper1)
+    t.search_by_structure()
 

@@ -10,6 +10,8 @@ class Paper():
         self.twig = twig
         self.subset = subset
 
+    def __str__(self):
+        return f"{self.branch} paper: {self._title} by {self._author}"
     @property
     def content(self):
         return self._content
