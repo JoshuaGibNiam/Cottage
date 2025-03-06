@@ -98,6 +98,19 @@ class Tree:
 
     branches = {"math": math_twigs, "science": science_twigs}
 
+    def update(self):
+        #add all existing papers into a list
+        #TODO: add a kwarg to specify the paper that ou want to update
+        papers = []
+        for x in Tree.branches.values():
+            for y in x.values():
+                for z in y.values():
+                    papers.append(z)
+
+
+    def __init__(self):
+        self.update()
+
     def initialize(self):
         '''Creates a paper'''
         print(list(Tree.branches.keys()))
@@ -139,6 +152,7 @@ class Tree:
             date = input("When was the paper completed? (DD/MM/YYYY): ")
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
             print("Paper has been successfully published/initialized.")
+            self.update()
 
 
         elif c1 == "2":
@@ -174,6 +188,7 @@ class Tree:
             date = input("When was the paper completed? (DD/MM/YYYY): ")
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
             print("Paper has been successfully published/initialized.")
+            self.update()
 
     def write(self, paper : Paper) -> bool:
         """adds the content to the initialized paper"""
@@ -181,6 +196,7 @@ class Tree:
         if not paper.extract(path):
             return False
         else:
+            self.update()
             return True
     def search_by_structure(self):
         """Search the paper by the structure, returns paper obj if exists else false"""
@@ -258,5 +274,5 @@ if __name__ == "__main__":
     paper1 = Paper("Joshua", "JoshuaNIam", "11/2/2025", "math", "Algebra"
                    , "Elementary algebra")
     t = Tree()
-    t.search_by_structure()
+    t.initialize()
 
