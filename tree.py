@@ -175,13 +175,15 @@ class Tree:
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
             print("Paper has been successfully published/initialized.")
 
-    def write(self, paper : Paper):
+    def write(self, paper : Paper) -> bool:
+        """adds the content to the initialized paper"""
         path = input(r"Enter file path (e.g. 'Papers\relativity.txt): ")
         if not paper.extract(path):
             return False
         else:
             return True
     def search_by_structure(self):
+        """Search the paper by the structure, returns paper obj if exists else false"""
         for index, key in enumerate(Tree.branches, start=1):
             print(f"{index}. {key}")
         c1 = intinput("What type of paper are you searching for (enter index)?",
@@ -208,9 +210,17 @@ class Tree:
 
             if len(c2[c3]) == 0:
                 print(f"There are no papers in {c3}!")
+                return False
+            else:
+                for x, y in enumerate(c2[c3], start=1):
+                    print(f"{x}. {y}")
+                c4 = int(intinput("What type of paper are you searching for (enter index)?",
+                        len(c2[c3])))
+                print(c2[c3][c4-1])
+                return c2[c3][c4-1]
 
         if c1 == "2":
-            c2 = "math"
+            c2 = "science"
             print("\n")
             for index, key in enumerate(Tree.science_twigs.keys(), start=1):
                 print(f"{index}. {key}")
@@ -231,6 +241,7 @@ class Tree:
 
             if len(c2[c3]) == 0:
                 print(f"There are no papers in {c3}!")
+                return False
             else:
                 for x, y in enumerate(c2[c3], start=1):
                     print(f"{x}. {y}")
