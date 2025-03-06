@@ -1,7 +1,10 @@
 from paper import Paper
 from sig_function import intinput
+import json
+import os
 class Tree:
     """tree handles the back-end of this program."""
+    papers = []
     algebra_subsets = {
         "Elementary Algebra": [],
         "Linear Algebra": [],
@@ -100,12 +103,12 @@ class Tree:
 
     def update(self):
         #add all existing papers into a list
-        #TODO: add a kwarg to specify the paper that ou want to update
-        papers = []
+        #TODO: add a kwarg to specify the paper that you want to update
         for x in Tree.branches.values():
             for y in x.values():
                 for z in y.values():
-                    papers.append(z)
+                    for a in z:
+                        Tree.papers.append(a)
 
 
     def __init__(self):
@@ -266,13 +269,31 @@ class Tree:
                 print(c2[c3][c4-1])
                 return c2[c3][c4-1]
 
-
+    def save(self):
+        for x in Tree.branches:
+            for y in Tree.branches[x]:
+                for z in Tree.branches[x][y]:
+                    for a in Tree.branches[x][y][z]:
+                        Tree.branches[x][y][z][Tree.branches[x][y][z].index(a)] = {
+                            "author": a.author,
+                            "title": a.title,
+                            "date": a.date,
+                            "branch": a.branch,
+                            "twig": a.twig,
+                            "subset": a.subset
+                        }
+        path = "papers.json"
+        if os.path.exists(path):
+            with open(path, "w") as file:
+                json.dump(Tree.branches, file, indent=4)
+        else:
+            raise FileNotFoundError("Initialize file first!")
 
 
 
 if __name__ == "__main__":
-    paper1 = Paper("Joshua", "JoshuaNIam", "11/2/2025", "math", "Algebra"
-                   , "Elementary algebra")
+
     t = Tree()
     t.initialize()
+    t.save()
 

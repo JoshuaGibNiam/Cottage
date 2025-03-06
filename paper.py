@@ -61,6 +61,7 @@ class Paper():
 
 
 if __name__ == "__main__":
-    relativity = Paper(author="Albert Einstein", title="theory of Relativity", date="02/03/2025")
-    relativity.extract("Papers/relativity.txt")
-    print(relativity.content)
+    relativity = Paper(author="Albert Einstein", title="theory of Relativity", date="02/03/2025",
+                       branch="math", subset="math", twig="math")
+    print(str(relativity))
+
