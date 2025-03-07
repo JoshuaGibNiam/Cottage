@@ -191,7 +191,7 @@ class Tree:
             author = input("What is the author of the paper you are publishing/adding?: ")
             date = input("When was the paper completed? (DD/MM/YYYY): ")
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
-            print("Paper has been successfully published/initialized.")
+            print(c2[c3])
             self.update()
 
     def write(self, paper : Paper) -> bool:
@@ -282,9 +282,9 @@ class Tree:
                             "branch": a.branch,
                             "twig": a.twig,
                             "subset": a.subset,
-                            "path": a.path
+
                         }
-                        print("AAAAAAAAAAAAAAAAAAa")
+
         path = "papers.json"
         if os.path.exists(path):
             with open(path, "w") as file:
@@ -327,6 +327,7 @@ if __name__ == "__main__":
 
     t = Tree()
     t.initialize()
+    print(t.branches)
     t.save()
 
 
