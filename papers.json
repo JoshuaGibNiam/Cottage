@@ -1,7 +1,17 @@
 {
     "math": {
         "Algebra": {
-            "Elementary Algebra": [],
+            "Elementary Algebra": [
+                {
+                    "author": "1",
+                    "title": "1",
+                    "date": "1",
+                    "branch": "math",
+                    "twig": "Algebra",
+                    "subset": "Linear Algebra",
+                    "path": null
+                }
+            ],
             "Linear Algebra": [],
             "Abstract Algebra": [],
             "Boolean Algebra": [],
@@ -46,9 +56,7 @@
     },
     "science": {
         "Physics": {
-            "Classical Mechanics": [
-
-            ],
+            "Classical Mechanics": [],
             "Quantum Mechanics": [],
             "Thermodynamics": [],
             "Electromagnetism": [],

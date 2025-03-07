@@ -112,11 +112,9 @@ class Tree:
 
 
     def __init__(self):
-        self.load()
-        self.update()
+        pass
 
     def initialize(self):
-        '''Creates a paper'''
         print(list(Tree.branches.keys()))
         c1 = intinput("What type of paper are you publishing/adding (1: math, 2: science)?"
                       ":", 2)
@@ -190,7 +188,13 @@ class Tree:
             title = input("What is the title of the paper you are publishing/adding?: ")
             author = input("What is the author of the paper you are publishing/adding?: ")
             date = input("When was the paper completed? (DD/MM/YYYY): ")
+            print(f"Before: {Tree.science_twigs}")
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
+
+
+            print("Paper has been successfully published/initialized.")
+            self.update()
+            print(f"After: {Tree.science_twigs}")
 
     def write(self, paper : Paper) -> bool:
         """adds the content to the initialized paper"""
@@ -303,16 +307,17 @@ class Tree:
                     for y in Tree.branches[x]:
                         for z in Tree.branches[x][y]:
                             for a in Tree.branches[x][y][z]:
-                                Tree.branches[x][y][z][Tree.branches[x][y][z].index(a)] = Paper(
-                                    author=a["author"],
-                                    title=a["title"],
-                                    date=a["date"],
-                                    branch=a["branch"],
-                                    twig=a["twig"],
-                                    subset=a["subset"],
-                                    path=a["path"]
-
-                                )
+                                Tree.branches[x][y][z] = [
+                                    Paper(
+                                        author=item["author"],
+                                        title=item["title"],
+                                        date=item["date"],
+                                        branch=item["branch"],
+                                        twig=item["twig"],
+                                        subset=item["subset"],
+                                        path=item["path"]
+                                    ) for item in Tree.branches[x][y][z]
+                                ]
 
             print("Successfully loaded file!")
         else:
@@ -320,13 +325,13 @@ class Tree:
                 json.dump(Tree.branches, file, indent=4)
             print("Initialized file!")
 
-
-
-
 if __name__ == "__main__":
 
     t = Tree()
+    t.load()
     t.initialize()
+    print(t.branches)
     t.save()
+    print(t.papers)
 
 
