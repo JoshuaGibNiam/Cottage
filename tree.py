@@ -283,7 +283,7 @@ class Tree:
                             "branch": a.branch,
                             "twig": a.twig,
                             "subset": a.subset,
-
+                            "path": a.path
                         }
 
         path = "papers.json"
