@@ -194,6 +194,7 @@ class Tree:
             print(c2[c3])
             self.update()
 
+
     def write(self, paper : Paper) -> bool:
         """adds the content to the initialized paper"""
         path = input(r"Enter file path (e.g. 'Papers\relativity.txt): ")
