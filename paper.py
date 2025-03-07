@@ -1,7 +1,7 @@
 import os
 class Paper():
     def __init__(self, author: str, title: str, date: str, branch: str, twig: str,
-                 subset: str) -> None:
+                 subset: str, path=None) -> None:
         self._author = author
         self._title = title
         self._date = date   #Date must be in DD/MM/YYYY format example 03/02/2025
@@ -9,6 +9,9 @@ class Paper():
         self.branch = branch
         self.twig = twig
         self.subset = subset
+        self.path = path
+        if path is not None:
+            self.extract(path)
 
     def __str__(self):
         return f"{self.branch} paper: {self._title} by {self._author}"
@@ -51,6 +54,7 @@ class Paper():
                 with open(file_path, "r", encoding="utf-8") as file:
                     self._content = file.read()
                     print("Successfully extracted file!")
+                    self.path = file_path
                     return True
             else:
                 print("File type not supported!")

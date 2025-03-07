@@ -64,16 +64,7 @@
             "Theoretical Chemistry": []
         },
         "Biology": {
-            "Botany": [
-                {
-                    "author": "3",
-                    "title": "2",
-                    "date": "",
-                    "branch": "science",
-                    "twig": "Biology",
-                    "subset": "Botany"
-                }
-            ],
+            "Botany": [],
             "Zoology": [],
             "Genetics": [],
             "Microbiology": [],

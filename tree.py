@@ -112,6 +112,7 @@ class Tree:
 
 
     def __init__(self):
+        self.load()
         self.update()
 
     def initialize(self):
@@ -280,14 +281,45 @@ class Tree:
                             "date": a.date,
                             "branch": a.branch,
                             "twig": a.twig,
-                            "subset": a.subset
+                            "subset": a.subset,
+                            "path": a.path
                         }
+                        print("AAAAAAAAAAAAAAAAAAa")
         path = "papers.json"
         if os.path.exists(path):
             with open(path, "w") as file:
                 json.dump(Tree.branches, file, indent=4)
+                print("Successfully saved data!")
         else:
             raise FileNotFoundError("Initialize file first!")
+
+    def load(self):
+        path = "papers.json"
+        print("Loading data.....")
+        if os.path.exists(path):
+            with open(path, "r") as file:
+                Tree.branches = json.load(file)
+                for x in Tree.branches:
+                    for y in Tree.branches[x]:
+                        for z in Tree.branches[x][y]:
+                            for a in Tree.branches[x][y][z]:
+                                Tree.branches[x][y][z][Tree.branches[x][y][z].index(a)] = Paper(
+                                    author=a["author"],
+                                    title=a["title"],
+                                    date=a["date"],
+                                    branch=a["branch"],
+                                    twig=a["twig"],
+                                    subset=a["subset"],
+                                    path=a["path"]
+
+                                )
+
+            print("Successfully loaded file!")
+        else:
+            with open(path, "w") as file:
+                json.dump(Tree.branches, file, indent=4)
+            print("Initialized file!")
+
 
 
 
@@ -296,4 +328,5 @@ if __name__ == "__main__":
     t = Tree()
     t.initialize()
     t.save()
+
 
