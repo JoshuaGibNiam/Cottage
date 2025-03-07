@@ -46,7 +46,9 @@
     },
     "science": {
         "Physics": {
-            "Classical Mechanics": [],
+            "Classical Mechanics": [
+
+            ],
             "Quantum Mechanics": [],
             "Thermodynamics": [],
             "Electromagnetism": [],
@@ -64,17 +66,7 @@
             "Theoretical Chemistry": []
         },
         "Biology": {
-            "Botany": [
-                {
-                    "author": "3",
-                    "title": "2",
-                    "date": "",
-                    "branch": "science",
-                    "twig": "Biology",
-                    "subset": "Botany",
-                    "path": null
-                }
-            ],
+            "Botany": [],
             "Zoology": [],
             "Genetics": [],
             "Microbiology": [],

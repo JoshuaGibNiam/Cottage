@@ -12,6 +12,7 @@ class Paper():
         self.path = path
         if path is not None:
             self.extract(path)
+        print("Hello!")
 
     def __str__(self):
         return f"{self.branch} paper: {self._title} by {self._author}"

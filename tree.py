@@ -191,9 +191,6 @@ class Tree:
             author = input("What is the author of the paper you are publishing/adding?: ")
             date = input("When was the paper completed? (DD/MM/YYYY): ")
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
-            print(c2[c3])
-            self.update()
-
 
     def write(self, paper : Paper) -> bool:
         """adds the content to the initialized paper"""
@@ -272,10 +269,12 @@ class Tree:
                 return c2[c3][c4-1]
 
     def save(self):
+        print("Startin to save")
         for x in Tree.branches:
             for y in Tree.branches[x]:
                 for z in Tree.branches[x][y]:
                     for a in Tree.branches[x][y][z]:
+                        print("reached here!")
                         Tree.branches[x][y][z][Tree.branches[x][y][z].index(a)] = {
                             "author": a.author,
                             "title": a.title,
@@ -328,7 +327,6 @@ if __name__ == "__main__":
 
     t = Tree()
     t.initialize()
-    print(t.branches)
     t.save()
 
 
