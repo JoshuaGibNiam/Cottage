@@ -112,10 +112,9 @@ class Tree:
 
 
     def __init__(self):
-        self.update()
+        pass
 
     def initialize(self):
-        '''Creates a paper'''
         print(list(Tree.branches.keys()))
         c1 = intinput("What type of paper are you publishing/adding (1: math, 2: science)?"
                       ":", 2)
@@ -153,9 +152,11 @@ class Tree:
             title = input("What is the title of the paper you are publishing/adding?: ")
             author = input("What is the author of the paper you are publishing/adding?: ")
             date = input("When was the paper completed? (DD/MM/YYYY): ")
+
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
             print("Paper has been successfully published/initialized.")
             self.update()
+
 
 
         elif c1 == "2":
@@ -189,9 +190,11 @@ class Tree:
             title = input("What is the title of the paper you are publishing/adding?: ")
             author = input("What is the author of the paper you are publishing/adding?: ")
             date = input("When was the paper completed? (DD/MM/YYYY): ")
+
             c2[c3].append(Paper(author, title, date, c1, c2name, c3name))
             print("Paper has been successfully published/initialized.")
             self.update()
+
 
     def write(self, paper : Paper) -> bool:
         """adds the content to the initialized paper"""
@@ -270,6 +273,7 @@ class Tree:
                 return c2[c3][c4-1]
 
     def save(self):
+        print("Startin to save")
         for x in Tree.branches:
             for y in Tree.branches[x]:
                 for z in Tree.branches[x][y]:
@@ -280,20 +284,60 @@ class Tree:
                             "date": a.date,
                             "branch": a.branch,
                             "twig": a.twig,
-                            "subset": a.subset
+                            "subset": a.subset,
+                            "path": a.path
                         }
+
         path = "papers.json"
         if os.path.exists(path):
             with open(path, "w") as file:
                 json.dump(Tree.branches, file, indent=4)
+                print("Successfully saved data!")
         else:
             raise FileNotFoundError("Initialize file first!")
 
 
+    def load(self):
+        path = "papers.json"
+        print("Loading data...")
+
+        if os.path.exists(path):
+            with open(path, "r") as file:
+                loaded_data = json.load(file)
+
+
+            t.branches["math"] = t.math_twigs
+            t.branches["science"] = t.science_twigs
+
+
+            for category in ["math", "science"]:
+                if category in loaded_data:
+                    for twig, subsets in loaded_data[category].items():
+                        if twig in t.branches[category]:
+                            for subset, papers in subsets.items():
+                                if subset in t.branches[category][twig]:
+                                    t.branches[category][twig][subset] = [
+                                        Paper(
+                                                author=item["author"],
+                                                title=item["title"],
+                                                date=item["date"],
+                                                branch=item["branch"],
+                                                twig=item["twig"],
+                                                subset=item["subset"],
+                                                path=item["path"]
+                                            ) for item in papers
+                                        ]
+            t.update()
+            print("Successfully loaded file!")
+
+        else:
+            print("File not found. Initializing new data...")
+            with open(path, "w") as file:
+                json.dump(t.branches, file, indent=4)
 
 if __name__ == "__main__":
 
     t = Tree()
-    t.initialize()
-    t.save()
+    t.load()
+
 
