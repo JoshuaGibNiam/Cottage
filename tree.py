@@ -339,6 +339,9 @@ if __name__ == "__main__":
 
     t = Tree()
     t.load()
+    t.initialize()
+    t.write(t.search_by_structure())
+    t.save()
 
 
 

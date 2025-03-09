@@ -85,7 +85,17 @@
     "science": {
         "Physics": {
             "Classical Mechanics": [],
-            "Quantum Mechanics": [],
+            "Quantum Mechanics": [
+                {
+                    "author": "Albert Einstein",
+                    "title": "The Quantum Theory of Radiation",
+                    "date": "03/03/1917",
+                    "branch": "science",
+                    "twig": "Physics",
+                    "subset": "Quantum Mechanics",
+                    "path": "Papers/1917_Radiation (1).txt"
+                }
+            ],
             "Thermodynamics": [],
             "Electromagnetism": [],
             "Relativity": [],
