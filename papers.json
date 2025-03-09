@@ -39,7 +39,17 @@
             "Elementary Number Theory": [],
             "Analytic Number Theory": [],
             "Algebraic Number Theory": [],
-            "Computational Number Theory": [],
+            "Computational Number Theory": [
+                {
+                    "author": "Alan Turing",
+                    "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+                    "date": "28/05/1936",
+                    "branch": "math",
+                    "twig": "Number Theory",
+                    "subset": "Diophantine Equations",
+                    "path": "Papers/Turing_Paper_1936 (2).txt"
+                }
+            ],
             "Diophantine Equations": [],
             "Cryptographic Number Theory": []
         }

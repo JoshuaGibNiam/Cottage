@@ -412,7 +412,8 @@ if __name__ == "__main__":
 
     t = Tree()
     t.load()
-    t.search_by_author()
+    t.initialize()
+    t.write(t.search_by_author())
     t.save()
 
 
