@@ -1,35 +1,7 @@
 {
     "math": {
         "Algebra": {
-            "Elementary Algebra": [
-                {
-                    "author": "1",
-                    "title": "1",
-                    "date": "1",
-                    "branch": "math",
-                    "twig": "Algebra",
-                    "subset": "Linear Algebra",
-                    "path": null
-                },
-                {
-                    "author": "1",
-                    "title": "1",
-                    "date": "1",
-                    "branch": "math",
-                    "twig": "Algebra",
-                    "subset": "Linear Algebra",
-                    "path": null
-                },
-                {
-                    "author": "1",
-                    "title": "1",
-                    "date": "",
-                    "branch": "math",
-                    "twig": "Algebra",
-                    "subset": "Linear Algebra",
-                    "path": null
-                }
-            ],
+            "Elementary Algebra": [],
             "Linear Algebra": [],
             "Abstract Algebra": [],
             "Boolean Algebra": [],
@@ -50,17 +22,7 @@
             "Differential Calculus": [],
             "Integral Calculus": [],
             "Multivariable Calculus": [],
-            "Vector Calculus": [
-                {
-                    "author": "3",
-                    "title": "6",
-                    "date": "",
-                    "branch": "math",
-                    "twig": "Calculus",
-                    "subset": "Real Analysis",
-                    "path": null
-                }
-            ],
+            "Vector Calculus": [],
             "Real Analysis": [],
             "Complex Analysis": [],
             "Functional Analysis": []
@@ -98,33 +60,24 @@
             ],
             "Thermodynamics": [],
             "Electromagnetism": [],
-            "Relativity": [],
+            "Relativity": [
+                {
+                    "author": "Albert Einstein",
+                    "title": "On the Electrodynamics of Moving Bodies",
+                    "date": "30/06/1905",
+                    "branch": "science",
+                    "twig": "Physics",
+                    "subset": "Relativity",
+                    "path": "Papers\\relativity.txt"
+                }
+            ],
             "Optics": [],
             "Nuclear Physics": [],
             "Astrophysics": []
         },
         "Chemistry": {
             "Organic Chemistry": [],
-            "Inorganic Chemistry": [
-                {
-                    "author": "2",
-                    "title": "2",
-                    "date": "1",
-                    "branch": "science",
-                    "twig": "Chemistry",
-                    "subset": "Inorganic Chemistry",
-                    "path": null
-                },
-                {
-                    "author": "2",
-                    "title": "2",
-                    "date": "2",
-                    "branch": "science",
-                    "twig": "Chemistry",
-                    "subset": "Inorganic Chemistry",
-                    "path": null
-                }
-            ],
+            "Inorganic Chemistry": [],
             "Physical Chemistry": [],
             "Analytical Chemistry": [],
             "Biochemistry": [],

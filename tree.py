@@ -273,7 +273,7 @@ class Tree:
                 return c2[c3][c4-1]
 
     def save(self):
-        print("Startin to save")
+        print("Saving data....")
         for x in Tree.branches:
             for y in Tree.branches[x]:
                 for z in Tree.branches[x][y]:
@@ -335,12 +335,51 @@ class Tree:
             with open(path, "w") as file:
                 json.dump(t.branches, file, indent=4)
 
+    def search_by_title(self):
+        title = input("What is the title of the paper you want to search? ")
+        for x in Tree.papers:
+            if x.title == title:
+                if x.title != "":
+                    print(f"{x}")
+                else:
+                    print("null")
+                affirm = input("Is this the paper you want(y/n)? ")
+                if affirm == "y":
+                    return x
+                elif affirm == "n":
+                    continue
+                else:
+                    print('invalid input taken as yes.')
+                    return x
+
+        else:
+            for i in range(15):
+                title_list = title.split(" ")
+                for x in Tree.papers:
+                    if x.title.split(" ")[i] == title_list[i]:
+                        print(f"{x}")
+                        affirm = input("Is this the paper you want(y/n)? ")
+                        if affirm == "y":
+                            return x
+                        elif affirm == "n":
+                            continue
+                        else:
+                            print('invalid input taken as yes.')
+                            return x
+            else:
+                print("No papers found!")
+                return None
+
+
+
+
+
 if __name__ == "__main__":
 
     t = Tree()
     t.load()
     t.initialize()
-    t.write(t.search_by_structure())
+    t.write(t.search_by_title())
     t.save()
 
 
