@@ -336,6 +336,7 @@ class Tree:
                 json.dump(t.branches, file, indent=4)
 
     def search_by_title(self):
+        """Searches a paper by its title, returns False if nothing found."""
         title = input("What is the title of the paper you want to search? ")
         for x in Tree.papers:
             if x.title == title:
@@ -354,9 +355,42 @@ class Tree:
 
         else:
             for i in range(15):
-                title_list = title.split(" ")
-                for x in Tree.papers:
-                    if x.title.split(" ")[i] == title_list[i]:
+                try:
+                    title_list = title.split(" ")
+                    for x in Tree.papers:
+                        if x.title.split(" ")[i] == title_list[i]:
+                            print(f"{x}")
+                            affirm = input("Is this the paper you want(y/n)? ")
+                            if affirm == "y":
+                                return x
+                            elif affirm == "n":
+                                continue
+                            else:
+                                print('invalid input taken as yes.')
+                                return x
+                except IndexError:
+                    continue
+            else:
+                print("No papers found!")
+                return False
+
+    def search_by_author(self):
+        author = input("What is the author of the paper you want to search? ")
+        for x in Tree.papers:
+            if x.author.lower() == author.lower():
+                print(f"{x}")
+                affirm = input("Is this the paper you want(y/n)? ")
+                if affirm == "y":
+                    return x
+                elif affirm == "n":
+                    continue
+                else:
+                    print('invalid input taken as yes.')
+                    return x
+        for i in range(15):
+            for x in Tree.papers:
+                try:
+                    if x.author.lower().split(" ")[i] == author.lower().split(" ")[i]:
                         print(f"{x}")
                         affirm = input("Is this the paper you want(y/n)? ")
                         if affirm == "y":
@@ -366,11 +400,11 @@ class Tree:
                         else:
                             print('invalid input taken as yes.')
                             return x
-            else:
-                print("No papers found!")
-                return None
+                except IndexError:
+                    continue
 
-
+        print("No papers found!")
+        return False
 
 
 
@@ -378,8 +412,7 @@ if __name__ == "__main__":
 
     t = Tree()
     t.load()
-    t.initialize()
-    t.write(t.search_by_title())
+    t.search_by_author()
     t.save()
 
 
